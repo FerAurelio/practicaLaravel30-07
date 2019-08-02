@@ -22,5 +22,11 @@ Route::get("/actors/add","ActorController@add");
 
 Route::post("/actors/add","ActorController@store");
 
-Route::get("/actor/{id}/edit","ActorController@edit");
-Route::post("/actor/{id}/edit","ActorController@edit");
+Route::get("/actor/edit/{id}","ActorController@edit");
+Route::put("/actor/edit/{id}","ActorController@update");
+Route::delete('/actor/{id}', 'ActorController@destroy');
+Route::get("/actor/{id}", "ActorController@show");
+Route::get("/movies/detalle/{id}","MovieController@detalle");
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

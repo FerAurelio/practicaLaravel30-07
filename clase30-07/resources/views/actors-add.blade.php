@@ -12,7 +12,7 @@
       			<div class="row justify-content-center">
       				<div class="col-10">
       					<h2>Crear actor</h2>
-                <form action="/actors/add" method="post">
+                <form action="/actors/add" method="post" enctype="multipart/form-data">
   			  			@csrf
       						<div class="row">
       							<div class="col-6">
@@ -54,7 +54,17 @@
       									</select>
       								</div>
                           							</div>
-      							<div class="col-12 text-center">
+              <div class="col-6">
+					<label>Sube una imagen:</label>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" name="poster" >
+    				<label class="custom-file-label">Sube un archivo .jpg/ .png/ .jpeg...</label>
+					</div>
+					@error ('poster')
+						<i style="color: red;"> {{ $errors->first('poster') }}</i>
+					@enderror
+				</div>
+      							<div class="col-12 text-center"><br><br>
       								<button type="submit" class="btn btn-primary">GUARDAR</button>
       							</div>
       						</div>

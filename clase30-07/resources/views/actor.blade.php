@@ -13,7 +13,7 @@
     @foreach ($actores as $actor)
       <li>
         <p>
-          <a href="/actor/{{$actor->id}}/edit">Editar a {{$actor->getFullName()}}</a>
+          <a href="/actor/edit/{{$actor->id}}">Editar a {{$actor->getFullName()}}</a>
         </p>
       </li>
     @endforeach

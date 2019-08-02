@@ -12,13 +12,15 @@
       			<div class="row justify-content-center">
       				<div class="col-10">
       					<h2>Editar actor</h2>
-                <form action="/actor/{{$actor->id}}" method="post">
-  			  			@csrf
+                <form action="/actor/edit/{{$actor->id}}" method="post">
+                	@csrf
+
+			{{ method_field('put') }}
       						<div class="row">
       							<div class="col-6">
       								<div class="form-group">
       									<label>Nombre:</label>
-      									<input type="text" class="form-control" placeholder="Ej: Lindsay" name="first_name" value="{{$actor->first_name}}">
+      									<input type="text" class="form-control" placeholder="Ej: Lindsay" name="first_name" value="{{old("first_name", $actor->first_name)}}">
                         @error ('first_name')
 							<i style="color: red;"> {{ $errors->first('first_name') }}</i>
 						@enderror
@@ -27,7 +29,7 @@
       							<div class="col-6">
       								<div class="form-group">
       									<label>Apellido:</label>
-      									<input type="text" class="form-control" placeholder="Ej: Lohan" name="last_name" value="{{$actor->last_name}}>
+      									<input type="text" class="form-control" placeholder="Ej: Lohan" name="last_name" value="{{old("last_name", $actor->last_name)}}">
                         @error ('last_name')
 							<i style="color: red;"> {{ $errors->first('last_name') }}</i>
 						@enderror
@@ -36,7 +38,7 @@
       							<div class="col-6">
       								<div class="form-group">
       									<label>Rating:</label>
-      									<input type="text" class="form-control" placeholder="Ej: 6.3" name="rating" value="{{$actor->rating}}>
+      									<input type="text" class="form-control" placeholder="Ej: 6.3" name="rating" value="{{old( "rating", $actor->rating)}}">
                         @error ('rating')
 							<i style="color: red;"> {{ $errors->first('rating') }}</i>
 						@enderror
@@ -45,7 +47,7 @@
       							<div class="col-6">
       								<div class="form-group">
       									<label>Película favorita:</label>
-      									<select class="form-control" name="favorite_movie_id" value="{{$actor->favorite_movie_id}}>
+      									<select class="form-control" name="favorite_movie_id" value="{{old("favorite_movie_id", $actor->favorite_movie_id)}}">
       										<option value="">Elegí una película favorita:</option>
 
                      @foreach  ($movies as $movie)
