@@ -27,7 +27,7 @@
   				@endforeach
   			</li>
   			@endif
-        <img src="/storage/{{ $actor->poster }}" width="100"><br><br>
+        <img src="storage/posters/{{ $actor->poster }}" width="100"><br><br>
         {{--   @auth--}}
                 {{-- @if (Auth::user()->id === $movieToFind->user_id)
                 @endif --}}
